@@ -1,0 +1,633 @@
+<html>
+
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
+
+<script>
+    // Called when token created successfully.
+    var successCallback = function(data) {
+        var myForm = document.getElementById('myCCForm');
+
+        // Set the token as the value for the token input
+        myForm.token.value = data.response.token.token;
+
+        // IMPORTANT: Here we call `submit()` on the form element directly instead of using jQuery to prevent and infinite token request loop.
+        myForm.submit();
+    };
+
+    // Called when token creation fails.
+    var errorCallback = function(data) {
+        if (data.errorCode === 200) {
+            tokenRequest();
+        } else {
+            alert(data.errorMsg);
+        }
+    };
+
+    var tokenRequest = function() {
+        // Setup token request arguments
+        var args = {
+            sellerId: "901310526",
+            publishableKey: "11FEBE49-3E99-41AA-8AED-3611EB629228",
+            ccNo: $("#ccNo").val(),
+            cvv: $("#cvv").val(),
+            expMonth: $("#expMonth").val(),
+            expYear: $("#expYear").val()
+        };
+
+        // Make the token request
+        TCO.requestToken(successCallback, errorCallback, args);
+    };
+
+    $(function() {
+        // Pull in the public encryption key for our environment
+        TCO.loadPubKey('sandbox');
+
+        $("#myCCForm").submit(function(e) {
+            // Call our token request function
+            tokenRequest();
+
+            // Prevent form from submitting
+            return false;
+        });
+    });
+</script>
+
+
+
+
+  <script language="javascript" type="text/javascript" src="proto.js"></script>
+
+ <body>
+ <form id="myCCForm" action="payment.php" method="post">
+    <input id="token" name="token" type="hidden" value="">
+    <div>
+        <label>
+            <span>Card Number</span>
+        </label>
+        <input id="ccNo" type="text" size="20" value="" autocomplete="off" required />
+    </div>
+    <div>
+        <label>
+            <span>Expiration Date (MM/YYYY)</span>
+        </label>
+        <input type="text" size="2" id="expMonth" required />
+        <span> / </span>
+        <input type="text" size="2" id="expYear" required />
+    </div>
+    <div>
+        <label>
+            <span>CVC</span>
+        </label>
+        <input id="cvv" size="4" type="text" value="" autocomplete="off" required />
+    </div>
+    <input type="submit" value="Submit Payment">
+</form>
+<div class="row">
+								<span id="categorySecondInsertSpot"></span><div class="choice snake" id="categorySecondSelection" style="">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Kategorija</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><div><input type="text"></div><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem highlighted" data-action="menu-item" data-value="1410" data-text="Usluge | Auto-moto" data-index="0">Usluge | Auto-moto</div><div class="uiMenuItem" data-action="menu-item" data-value="1651" data-text="Usluge | Audio, TV i video" data-index="1">Usluge | Audio, TV i video</div><div class="uiMenuItem" data-action="menu-item" data-value="1420" data-text="Usluge | Bela tehnika i elektronika" data-index="2">Usluge | Bela tehnika i elektronika</div><div class="uiMenuItem" data-action="menu-item" data-value="1418" data-text="Usluge | Cuvanje i nega dece" data-index="3">Usluge | Cuvanje i nega dece</div><div class="uiMenuItem" data-action="menu-item" data-value="1649" data-text="Usluge | Dogadaji i izlasci" data-index="4">Usluge | Dogadaji i izlasci</div><div class="uiMenuItem" data-action="menu-item" data-value="1414" data-text="Usluge | Gradevinarstvo" data-index="5">Usluge | Gradevinarstvo</div><div class="uiMenuItem" data-action="menu-item" data-value="1411" data-text="Usluge | Kuca i dvorište" data-index="6">Usluge | Kuca i dvorište</div><div class="uiMenuItem" data-action="menu-item" data-value="1424" data-text="Usluge | Kucni ljubimci" data-index="7">Usluge | Kucni ljubimci</div><div class="uiMenuItem" data-action="menu-item" data-value="1421" data-text="Usluge | Kompjuteri i konzole" data-index="8">Usluge | Kompjuteri i konzole</div><div class="uiMenuItem" data-action="menu-item" data-value="1652" data-text="Usluge | Majstorske" data-index="9">Usluge | Majstorske</div><div class="uiMenuItem" data-action="menu-item" data-value="1415" data-text="Usluge | Mehanizacija" data-index="10">Usluge | Mehanizacija</div><div class="uiMenuItem" data-action="menu-item" data-value="1422" data-text="Usluge | Muzika i instrumenti" data-index="11">Usluge | Muzika i instrumenti</div><div class="uiMenuItem" data-action="menu-item" data-value="1416" data-text="Usluge | Nega i lepota" data-index="12">Usluge | Nega i lepota</div><div class="uiMenuItem" data-action="menu-item" data-value="1412" data-text="Usluge | Poducavanje" data-index="13">Usluge | Poducavanje</div><div class="uiMenuItem" data-action="menu-item" data-value="1413" data-text="Usluge | Poslovanje" data-index="14">Usluge | Poslovanje</div><div class="uiMenuItem" data-action="menu-item" data-value="1647" data-text="Usluge | Servis i popravka" data-index="15">Usluge | Servis i popravka</div><div class="uiMenuItem" data-action="menu-item" data-value="1650" data-text="Usluge | Sport i rekreacija" data-index="16">Usluge | Sport i rekreacija</div><div class="uiMenuItem" data-action="menu-item" data-value="1419" data-text="Usluge | Transport" data-index="17">Usluge | Transport</div><div class="uiMenuItem" data-action="menu-item" data-value="1425" data-text="Usluge | Turizam" data-index="18">Usluge | Turizam</div></div><div class="uiMenuGroup" id="menuGroup1"><div class="uiMenuItem" data-action="menu-item" data-value="1648" data-text="Usluge | Umetnost" data-index="19">Usluge | Umetnost</div><div class="uiMenuItem" data-action="menu-item" data-value="1423" data-text="Usluge | Zanati" data-index="20">Usluge | Zanati</div><div class="uiMenuItem" data-action="menu-item" data-value="1417" data-text="Usluge | Zdravstvo" data-index="21">Usluge | Zdravstvo</div><div class="uiMenuItem" data-action="menu-item" data-value="1653" data-text="Usluge | Razno" data-index="22">Usluge | Razno</div><div class="uiMenuItem" data-action="menu-item" data-value="969" data-text="Alati i oruda" data-index="23">Alati i oruda</div><div class="uiMenuItem" data-action="menu-item" data-value="186" data-text="Antikviteti i umetnicka dela" data-index="24">Antikviteti i umetnicka dela</div><div class="uiMenuItem" data-action="menu-item" data-value="1" data-text="Audio" data-index="25">Audio</div><div class="uiMenuItem" data-action="menu-item" data-value="1176" data-text="Audio | Nosaci zvuka" data-index="26">Audio | Nosaci zvuka</div><div class="uiMenuItem" data-action="menu-item" data-value="2013" data-text="Automobili" data-index="27">Automobili</div><div class="uiMenuItem" data-action="menu-item" data-value="1251" data-text="Automobili | Oprema" data-index="28">Automobili | Oprema</div><div class="uiMenuItem" data-action="menu-item" data-value="591" data-text="Automobili | Delovi i alati" data-index="29">Automobili | Delovi i alati</div><div class="uiMenuItem" data-action="menu-item" data-value="18" data-text="Bebi oprema i decje stvari" data-index="30">Bebi oprema i decje stvari</div><div class="uiMenuItem" data-action="menu-item" data-value="15" data-text="Bela tehnika i kucni aparati" data-index="31">Bela tehnika i kucni aparati</div><div class="uiMenuItem" data-action="menu-item" data-value="912" data-text="Bicikli" data-index="32">Bicikli</div><div class="uiMenuItem" data-action="menu-item" data-value="930" data-text="Bicikli | Oprema i delovi" data-index="33">Bicikli | Oprema i delovi</div><div class="uiMenuItem" data-action="menu-item" data-value="1296" data-text="Casopisi i stripovi" data-index="34">Casopisi i stripovi</div><div class="uiMenuItem" data-action="menu-item" data-value="620" data-text="Dvorište i bašta" data-index="35">Dvorište i bašta</div><div class="uiMenuItem" data-action="menu-item" data-value="821" data-text="Elektronika i komponente" data-index="36">Elektronika i komponente</div><div class="uiMenuItem" data-action="menu-item" data-value="703" data-text="Firme" data-index="37">Firme</div></div><div class="uiMenuGroup" id="menuGroup2"><div class="uiMenuItem" data-action="menu-item" data-value="16" data-text="Foto" data-index="38">Foto</div><div class="uiMenuItem" data-action="menu-item" data-value="7" data-text="Gradevinarstvo" data-index="39">Gradevinarstvo</div><div class="uiMenuItem" data-action="menu-item" data-value="1157" data-text="Igracke i igre" data-index="40">Igracke i igre</div><div class="uiMenuItem" data-action="menu-item" data-value="37" data-text="Industrijska oprema" data-index="41">Industrijska oprema</div><div class="uiMenuItem" data-action="menu-item" data-value="8" data-text="Knjige" data-index="42">Knjige</div><div class="uiMenuItem" data-action="menu-item" data-value="584" data-text="Kolekcionarstvo" data-index="43">Kolekcionarstvo</div><div class="uiMenuItem" data-action="menu-item" data-value="10" data-text="Kompjuteri | Desktop" data-index="44">Kompjuteri | Desktop</div><div class="uiMenuItem" data-action="menu-item" data-value="1221" data-text="Kompjuteri | Laptop i tablet" data-index="45">Kompjuteri | Laptop i tablet</div><div class="uiMenuItem" data-action="menu-item" data-value="1036" data-text="Konzole i igrice" data-index="46">Konzole i igrice</div><div class="uiMenuItem" data-action="menu-item" data-value="14" data-text="Kucni ljubimci" data-index="47">Kucni ljubimci</div><div class="uiMenuItem" data-action="menu-item" data-value="1284" data-text="Lov i ribolov" data-index="48">Lov i ribolov</div><div class="uiMenuItem" data-action="menu-item" data-value="23" data-text="Mobilni telefoni" data-index="49">Mobilni telefoni</div><div class="uiMenuItem" data-action="menu-item" data-value="1017" data-text="Mobilni tel. | Oprema i delovi" data-index="50">Mobilni tel. | Oprema i delovi</div><div class="uiMenuItem" data-action="menu-item" data-value="21" data-text="Motocikli" data-index="51">Motocikli</div><div class="uiMenuItem" data-action="menu-item" data-value="946" data-text="Motocikli | Oprema i delovi" data-index="52">Motocikli | Oprema i delovi</div><div class="uiMenuItem" data-action="menu-item" data-value="22" data-text="Muzika i instrumenti" data-index="53">Muzika i instrumenti</div><div class="uiMenuItem" data-action="menu-item" data-value="213" data-text="Nakit, satovi i dragocenosti" data-index="54">Nakit, satovi i dragocenosti</div><div class="uiMenuItem" data-action="menu-item" data-value="1268" data-text="Nameštaj" data-index="55">Nameštaj</div><div class="uiMenuItem" data-action="menu-item" data-value="20" data-text="Nega lica, tela i ulepšavanje" data-index="56">Nega lica, tela i ulepšavanje</div></div><div class="uiMenuGroup" id="menuGroup3"><div class="uiMenuItem" data-action="menu-item" data-value="27" data-text="Nekretnine | Inostranstvo" data-index="57">Nekretnine | Inostranstvo</div><div class="uiMenuItem" data-action="menu-item" data-value="25" data-text="Nekretnine | Iznajmljivanje" data-index="58">Nekretnine | Iznajmljivanje</div><div class="uiMenuItem" data-action="menu-item" data-value="26" data-text="Nekretnine | Kupoprodaja" data-index="59">Nekretnine | Kupoprodaja</div><div class="uiMenuItem" data-action="menu-item" data-value="1384" data-text="Obuca | Decja" data-index="60">Obuca | Decja</div><div class="uiMenuItem" data-action="menu-item" data-value="1078" data-text="Obuca | Muška" data-index="61">Obuca | Muška</div><div class="uiMenuItem" data-action="menu-item" data-value="1077" data-text="Obuca | Ženska" data-index="62">Obuca | Ženska</div><div class="uiMenuItem" data-action="menu-item" data-value="1383" data-text="Odeca | Decja" data-index="63">Odeca | Decja</div><div class="uiMenuItem" data-action="menu-item" data-value="29" data-text="Odeca | Muška" data-index="64">Odeca | Muška</div><div class="uiMenuItem" data-action="menu-item" data-value="743" data-text="Odeca | Ženska" data-index="65">Odeca | Ženska</div><div class="uiMenuItem" data-action="menu-item" data-value="9" data-text="Oprema za poslovanje" data-index="66">Oprema za poslovanje</div><div class="uiMenuItem" data-action="menu-item" data-value="539" data-text="Oprema u zdravstvu" data-index="67">Oprema u zdravstvu</div><div class="uiMenuItem" data-action="menu-item" data-value="31" data-text="Plovni objekti" data-index="68">Plovni objekti</div><div class="uiMenuItem" data-action="menu-item" data-value="501" data-text="Poljoprivreda" data-index="69">Poljoprivreda</div><div class="uiMenuItem" data-action="menu-item" data-value="11" data-text="Softver i Internet" data-index="70">Softver i Internet</div><div class="uiMenuItem" data-action="menu-item" data-value="34" data-text="Sport i razonoda" data-index="71">Sport i razonoda</div><div class="uiMenuItem" data-action="menu-item" data-value="863" data-text="Torbe, novcanici i asesoari" data-index="72">Torbe, novcanici i asesoari</div><div class="uiMenuItem" data-action="menu-item" data-value="1054" data-text="TV i Video" data-index="73">TV i Video</div><div class="uiMenuItem" data-action="menu-item" data-value="1318" data-text="Ugostiteljstvo | Oprema" data-index="74">Ugostiteljstvo | Oprema</div><div class="uiMenuItem" data-action="menu-item" data-value="17" data-text="Uredenje kuce" data-index="75">Uredenje kuce</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div><div class="choice snake" id="groupSecondSelection" style="display: none" skip-odd-even-count="yes">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Grupa</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><div><input type="text"></div><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"></div><div class="uiMenuGroup" id="menuGroup1"></div><div class="uiMenuGroup" id="menuGroup2"></div><div class="uiMenuGroup" id="menuGroup3"></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span class="ad-class-element-inline-car">
+									<span id="carModelSecondInsertSpot"></span><div class="choice snake multiselect" id="carModelSecondSelection" style="display: none">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Model</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><div><input type="text"></div><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder" style="max-height: 250px; overflow-y: auto; overflow-x: hidden; padding-right: 15px;"><div class="uiMenuGroup" id="menuGroup0"></div><div class="uiMenuGroup" id="menuGroup1"></div><div class="uiMenuGroup" id="menuGroup2"></div><div class="uiMenuGroup" id="menuGroup3"></div><div class="uiMenuGroup" id="menuGroup4"></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								</span>
+								<span id="locationSecondInsertSpot"></span><div class="choice snake" id="locationSecondSelection" style="">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Mesto/Grad</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><div><input type="text"></div><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="73" data-text="Ada" data-index="0">Ada</div><div class="uiMenuItem" data-action="menu-item" data-value="86" data-text="Aleksandrovac" data-index="1">Aleksandrovac</div><div class="uiMenuItem" data-action="menu-item" data-value="63" data-text="Aleksinac" data-index="2">Aleksinac</div><div class="uiMenuItem" data-action="menu-item" data-value="164" data-text="Alibunar" data-index="3">Alibunar</div><div class="uiMenuItem" data-action="menu-item" data-value="53" data-text="Apatin" data-index="4">Apatin</div><div class="uiMenuItem" data-action="menu-item" data-value="31" data-text="Arandelovac" data-index="5">Arandelovac</div><div class="uiMenuItem" data-action="menu-item" data-value="104" data-text="Arilje" data-index="6">Arilje</div><div class="uiMenuItem" data-action="menu-item" data-value="154" data-text="Azanja" data-index="7">Azanja</div><div class="uiMenuItem" data-action="menu-item" data-value="135" data-text="Babušnica" data-index="8">Babušnica</div><div class="uiMenuItem" data-action="menu-item" data-value="147" data-text="Bac" data-index="9">Bac</div><div class="uiMenuItem" data-action="menu-item" data-value="47" data-text="Backa Palanka" data-index="10">Backa Palanka</div><div class="uiMenuItem" data-action="menu-item" data-value="76" data-text="Backa Topola" data-index="11">Backa Topola</div><div class="uiMenuItem" data-action="menu-item" data-value="136" data-text="Backi Petrovac" data-index="12">Backi Petrovac</div><div class="uiMenuItem" data-action="menu-item" data-value="175" data-text="Backo Petrovo Selo" data-index="13">Backo Petrovo Selo</div><div class="uiMenuItem" data-action="menu-item" data-value="83" data-text="Bajina Bašta" data-index="14">Bajina Bašta</div><div class="uiMenuItem" data-action="menu-item" data-value="177" data-text="Banatski Karlovac" data-index="15">Banatski Karlovac</div><div class="uiMenuItem" data-action="menu-item" data-value="172" data-text="Banatsko Novo Selo" data-index="16">Banatsko Novo Selo</div><div class="uiMenuItem" data-action="menu-item" data-value="189" data-text="Banja Koviljaca" data-index="17">Banja Koviljaca</div><div class="uiMenuItem" data-action="menu-item" data-value="106" data-text="Barajevo" data-index="18">Barajevo</div><div class="uiMenuItem" data-action="menu-item" data-value="149" data-text="Batajnica" data-index="19">Batajnica</div><div class="uiMenuItem" data-action="menu-item" data-value="148" data-text="Batocina" data-index="20">Batocina</div><div class="uiMenuItem" data-action="menu-item" data-value="48" data-text="Becej" data-index="21">Becej</div><div class="uiMenuItem" data-action="menu-item" data-value="67" data-text="Bela Crkva" data-index="22">Bela Crkva</div><div class="uiMenuItem" data-action="menu-item" data-value="87" data-text="Bela Palanka" data-index="23">Bela Palanka</div><div class="uiMenuItem" data-action="menu-item" data-value="127" data-text="Beocin" data-index="24">Beocin</div><div class="uiMenuItem" data-action="menu-item" data-value="1" data-text="Beograd" data-index="25">Beograd</div><div class="uiMenuItem" data-action="menu-item" data-value="153" data-text="Beograd | Batajnica" data-index="26">Beograd | Batajnica</div><div class="uiMenuItem" data-action="menu-item" data-value="117" data-text="Beograd | Cukarica" data-index="27">Beograd | Cukarica</div><div class="uiMenuItem" data-action="menu-item" data-value="35" data-text="Beograd | Grocka" data-index="28">Beograd | Grocka</div><div class="uiMenuItem" data-action="menu-item" data-value="110" data-text="Beograd | Novi Bg." data-index="29">Beograd | Novi Bg.</div><div class="uiMenuItem" data-action="menu-item" data-value="111" data-text="Beograd | Palilula" data-index="30">Beograd | Palilula</div><div class="uiMenuItem" data-action="menu-item" data-value="112" data-text="Beograd | Rakovica" data-index="31">Beograd | Rakovica</div><div class="uiMenuItem" data-action="menu-item" data-value="113" data-text="Beograd | Savski venac" data-index="32">Beograd | Savski venac</div><div class="uiMenuItem" data-action="menu-item" data-value="115" data-text="Beograd | Stari grad" data-index="33">Beograd | Stari grad</div><div class="uiMenuItem" data-action="menu-item" data-value="116" data-text="Beograd | Surcin" data-index="34">Beograd | Surcin</div><div class="uiMenuItem" data-action="menu-item" data-value="107" data-text="Beograd | Voždovac" data-index="35">Beograd | Voždovac</div><div class="uiMenuItem" data-action="menu-item" data-value="108" data-text="Beograd | Vracar" data-index="36">Beograd | Vracar</div><div class="uiMenuItem" data-action="menu-item" data-value="103" data-text="Beograd | Zemun" data-index="37">Beograd | Zemun</div></div><div class="uiMenuGroup" id="menuGroup1"><div class="uiMenuItem" data-action="menu-item" data-value="109" data-text="Beograd | Zvezdara" data-index="38">Beograd | Zvezdara</div><div class="uiMenuItem" data-action="menu-item" data-value="158" data-text="Beška" data-index="39">Beška</div><div class="uiMenuItem" data-action="menu-item" data-value="100" data-text="Blace" data-index="40">Blace</div><div class="uiMenuItem" data-action="menu-item" data-value="151" data-text="Bogatic" data-index="41">Bogatic</div><div class="uiMenuItem" data-action="menu-item" data-value="179" data-text="Bojnik" data-index="42">Bojnik</div><div class="uiMenuItem" data-action="menu-item" data-value="187" data-text="Boljevac" data-index="43">Boljevac</div><div class="uiMenuItem" data-action="menu-item" data-value="26" data-text="Bor" data-index="44">Bor</div><div class="uiMenuItem" data-action="menu-item" data-value="27" data-text="Borca" data-index="45">Borca</div><div class="uiMenuItem" data-action="menu-item" data-value="138" data-text="Bosilegrad" data-index="46">Bosilegrad</div><div class="uiMenuItem" data-action="menu-item" data-value="77" data-text="Brus" data-index="47">Brus</div><div class="uiMenuItem" data-action="menu-item" data-value="90" data-text="Bujanovac" data-index="48">Bujanovac</div><div class="uiMenuItem" data-action="menu-item" data-value="174" data-text="Crvenka" data-index="49">Crvenka</div><div class="uiMenuItem" data-action="menu-item" data-value="18" data-text="Cacak" data-index="50">Cacak</div><div class="uiMenuItem" data-action="menu-item" data-value="155" data-text="Celarevo" data-index="51">Celarevo</div><div class="uiMenuItem" data-action="menu-item" data-value="166" data-text="Curug" data-index="52">Curug</div><div class="uiMenuItem" data-action="menu-item" data-value="129" data-text="Cicevac" data-index="53">Cicevac</div><div class="uiMenuItem" data-action="menu-item" data-value="38" data-text="Cuprija" data-index="54">Cuprija</div><div class="uiMenuItem" data-action="menu-item" data-value="143" data-text="Despotovac" data-index="55">Despotovac</div><div class="uiMenuItem" data-action="menu-item" data-value="119" data-text="Dimitrovgrad" data-index="56">Dimitrovgrad</div><div class="uiMenuItem" data-action="menu-item" data-value="181" data-text="Dolovo (kod Panceva)" data-index="57">Dolovo (kod Panceva)</div><div class="uiMenuItem" data-action="menu-item" data-value="173" data-text="Doljevac" data-index="58">Doljevac</div><div class="uiMenuItem" data-action="menu-item" data-value="131" data-text="Feketic" data-index="59">Feketic</div><div class="uiMenuItem" data-action="menu-item" data-value="130" data-text="Futog" data-index="60">Futog</div><div class="uiMenuItem" data-action="menu-item" data-value="32" data-text="Gornji Milanovac" data-index="61">Gornji Milanovac</div><div class="uiMenuItem" data-action="menu-item" data-value="52" data-text="Indija" data-index="62">Indija</div><div class="uiMenuItem" data-action="menu-item" data-value="6" data-text="Inostranstvo" data-index="63">Inostranstvo</div><div class="uiMenuItem" data-action="menu-item" data-value="125" data-text="Irig" data-index="64">Irig</div><div class="uiMenuItem" data-action="menu-item" data-value="93" data-text="Ivanjica" data-index="65">Ivanjica</div><div class="uiMenuItem" data-action="menu-item" data-value="14" data-text="Jagodina" data-index="66">Jagodina</div><div class="uiMenuItem" data-action="menu-item" data-value="167" data-text="Kacarevo" data-index="67">Kacarevo</div><div class="uiMenuItem" data-action="menu-item" data-value="162" data-text="Kac" data-index="68">Kac</div><div class="uiMenuItem" data-action="menu-item" data-value="66" data-text="Kanjiža" data-index="69">Kanjiža</div><div class="uiMenuItem" data-action="menu-item" data-value="43" data-text="Kikinda" data-index="70">Kikinda</div><div class="uiMenuItem" data-action="menu-item" data-value="60" data-text="Kladovo" data-index="71">Kladovo</div><div class="uiMenuItem" data-action="menu-item" data-value="152" data-text="Knic" data-index="72">Knic</div><div class="uiMenuItem" data-action="menu-item" data-value="94" data-text="Knjaževac" data-index="73">Knjaževac</div><div class="uiMenuItem" data-action="menu-item" data-value="169" data-text="Koceljeva" data-index="74">Koceljeva</div><div class="uiMenuItem" data-action="menu-item" data-value="134" data-text="Kopaonik" data-index="75">Kopaonik</div></div><div class="uiMenuGroup" id="menuGroup2"><div class="uiMenuItem" data-action="menu-item" data-value="74" data-text="Kosjeric" data-index="76">Kosjeric</div><div class="uiMenuItem" data-action="menu-item" data-value="55" data-text="Kosovska Mitrovica" data-index="77">Kosovska Mitrovica</div><div class="uiMenuItem" data-action="menu-item" data-value="126" data-text="Kostolac" data-index="78">Kostolac</div><div class="uiMenuItem" data-action="menu-item" data-value="157" data-text="Kovacica" data-index="79">Kovacica</div><div class="uiMenuItem" data-action="menu-item" data-value="163" data-text="Kovilj" data-index="80">Kovilj</div><div class="uiMenuItem" data-action="menu-item" data-value="85" data-text="Kovin" data-index="81">Kovin</div><div class="uiMenuItem" data-action="menu-item" data-value="11" data-text="Kragujevac" data-index="82">Kragujevac</div><div class="uiMenuItem" data-action="menu-item" data-value="8" data-text="Kraljevo" data-index="83">Kraljevo</div><div class="uiMenuItem" data-action="menu-item" data-value="17" data-text="Kruševac" data-index="84">Kruševac</div><div class="uiMenuItem" data-action="menu-item" data-value="61" data-text="Kucevo" data-index="85">Kucevo</div><div class="uiMenuItem" data-action="menu-item" data-value="50" data-text="Kula" data-index="86">Kula</div><div class="uiMenuItem" data-action="menu-item" data-value="5" data-text="Kuršumlija" data-index="87">Kuršumlija</div><div class="uiMenuItem" data-action="menu-item" data-value="168" data-text="Kusadak" data-index="88">Kusadak</div><div class="uiMenuItem" data-action="menu-item" data-value="180" data-text="Lajkovac" data-index="89">Lajkovac</div><div class="uiMenuItem" data-action="menu-item" data-value="141" data-text="Lapovo" data-index="90">Lapovo</div><div class="uiMenuItem" data-action="menu-item" data-value="33" data-text="Lazarevac" data-index="91">Lazarevac</div><div class="uiMenuItem" data-action="menu-item" data-value="145" data-text="Lebane" data-index="92">Lebane</div><div class="uiMenuItem" data-action="menu-item" data-value="140" data-text="Leposavic" data-index="93">Leposavic</div><div class="uiMenuItem" data-action="menu-item" data-value="12" data-text="Leskovac" data-index="94">Leskovac</div><div class="uiMenuItem" data-action="menu-item" data-value="37" data-text="Loznica" data-index="95">Loznica</div><div class="uiMenuItem" data-action="menu-item" data-value="161" data-text="Lucani" data-index="96">Lucani</div><div class="uiMenuItem" data-action="menu-item" data-value="120" data-text="Ljig" data-index="97">Ljig</div><div class="uiMenuItem" data-action="menu-item" data-value="139" data-text="Ljubovija" data-index="98">Ljubovija</div><div class="uiMenuItem" data-action="menu-item" data-value="101" data-text="Majdanpek" data-index="99">Majdanpek</div><div class="uiMenuItem" data-action="menu-item" data-value="137" data-text="Mali Idoš" data-index="100">Mali Idoš</div><div class="uiMenuItem" data-action="menu-item" data-value="88" data-text="Mali Zvornik" data-index="101">Mali Zvornik</div><div class="uiMenuItem" data-action="menu-item" data-value="69" data-text="Melenci" data-index="102">Melenci</div><div class="uiMenuItem" data-action="menu-item" data-value="192" data-text="Merošina" data-index="103">Merošina</div><div class="uiMenuItem" data-action="menu-item" data-value="36" data-text="Mladenovac" data-index="104">Mladenovac</div><div class="uiMenuItem" data-action="menu-item" data-value="171" data-text="Mol" data-index="105">Mol</div><div class="uiMenuItem" data-action="menu-item" data-value="80" data-text="Negotin" data-index="106">Negotin</div><div class="uiMenuItem" data-action="menu-item" data-value="2" data-text="Niš" data-index="107">Niš</div><div class="uiMenuItem" data-action="menu-item" data-value="121" data-text="Nova Pazova" data-index="108">Nova Pazova</div><div class="uiMenuItem" data-action="menu-item" data-value="144" data-text="Nova Varoš" data-index="109">Nova Varoš</div><div class="uiMenuItem" data-action="menu-item" data-value="156" data-text="Novi Banovci" data-index="110">Novi Banovci</div><div class="uiMenuItem" data-action="menu-item" data-value="70" data-text="Novi Becej" data-index="111">Novi Becej</div><div class="uiMenuItem" data-action="menu-item" data-value="81" data-text="Novi Kneževac" data-index="112">Novi Kneževac</div><div class="uiMenuItem" data-action="menu-item" data-value="23" data-text="Novi Pazar" data-index="113">Novi Pazar</div></div><div class="uiMenuGroup" id="menuGroup3"><div class="uiMenuItem" data-action="menu-item" data-value="16" data-text="Novi Sad" data-index="114">Novi Sad</div><div class="uiMenuItem" data-action="menu-item" data-value="34" data-text="Obrenovac" data-index="115">Obrenovac</div><div class="uiMenuItem" data-action="menu-item" data-value="84" data-text="Odžaci" data-index="116">Odžaci</div><div class="uiMenuItem" data-action="menu-item" data-value="182" data-text="Opovo" data-index="117">Opovo</div><div class="uiMenuItem" data-action="menu-item" data-value="183" data-text="Palic" data-index="118">Palic</div><div class="uiMenuItem" data-action="menu-item" data-value="41" data-text="Pancevo" data-index="119">Pancevo</div><div class="uiMenuItem" data-action="menu-item" data-value="30" data-text="Paracin" data-index="120">Paracin</div><div class="uiMenuItem" data-action="menu-item" data-value="78" data-text="Petrovac na Mlavi" data-index="121">Petrovac na Mlavi</div><div class="uiMenuItem" data-action="menu-item" data-value="160" data-text="Petrovaradin" data-index="122">Petrovaradin</div><div class="uiMenuItem" data-action="menu-item" data-value="10" data-text="Pirot" data-index="123">Pirot</div><div class="uiMenuItem" data-action="menu-item" data-value="150" data-text="Plandište" data-index="124">Plandište</div><div class="uiMenuItem" data-action="menu-item" data-value="142" data-text="Pojate" data-index="125">Pojate</div><div class="uiMenuItem" data-action="menu-item" data-value="24" data-text="Požarevac" data-index="126">Požarevac</div><div class="uiMenuItem" data-action="menu-item" data-value="68" data-text="Požega" data-index="127">Požega</div><div class="uiMenuItem" data-action="menu-item" data-value="91" data-text="Preševo" data-index="128">Preševo</div><div class="uiMenuItem" data-action="menu-item" data-value="39" data-text="Priboj" data-index="129">Priboj</div><div class="uiMenuItem" data-action="menu-item" data-value="65" data-text="Prijepolje" data-index="130">Prijepolje</div><div class="uiMenuItem" data-action="menu-item" data-value="15" data-text="Prokuplje" data-index="131">Prokuplje</div><div class="uiMenuItem" data-action="menu-item" data-value="123" data-text="Pukovac" data-index="132">Pukovac</div><div class="uiMenuItem" data-action="menu-item" data-value="193" data-text="Raca Kragujevacka" data-index="133">Raca Kragujevacka</div><div class="uiMenuItem" data-action="menu-item" data-value="95" data-text="Raška" data-index="134">Raška</div><div class="uiMenuItem" data-action="menu-item" data-value="89" data-text="Ražanj" data-index="135">Ražanj</div><div class="uiMenuItem" data-action="menu-item" data-value="46" data-text="Ruma" data-index="136">Ruma</div><div class="uiMenuItem" data-action="menu-item" data-value="178" data-text="Rumenka" data-index="137">Rumenka</div><div class="uiMenuItem" data-action="menu-item" data-value="170" data-text="Ruski Krstur" data-index="138">Ruski Krstur</div><div class="uiMenuItem" data-action="menu-item" data-value="49" data-text="Senta" data-index="139">Senta</div><div class="uiMenuItem" data-action="menu-item" data-value="159" data-text="Sevojno" data-index="140">Sevojno</div><div class="uiMenuItem" data-action="menu-item" data-value="176" data-text="Sivac" data-index="141">Sivac</div><div class="uiMenuItem" data-action="menu-item" data-value="98" data-text="Sjenica" data-index="142">Sjenica</div><div class="uiMenuItem" data-action="menu-item" data-value="20" data-text="Smederevo" data-index="143">Smederevo</div><div class="uiMenuItem" data-action="menu-item" data-value="29" data-text="Smederevska Palanka" data-index="144">Smederevska Palanka</div><div class="uiMenuItem" data-action="menu-item" data-value="92" data-text="Sokobanja" data-index="145">Sokobanja</div><div class="uiMenuItem" data-action="menu-item" data-value="42" data-text="Sombor" data-index="146">Sombor</div><div class="uiMenuItem" data-action="menu-item" data-value="114" data-text="Sopot" data-index="147">Sopot</div><div class="uiMenuItem" data-action="menu-item" data-value="99" data-text="Srbobran" data-index="148">Srbobran</div><div class="uiMenuItem" data-action="menu-item" data-value="75" data-text="Sremska Kamenica" data-index="149">Sremska Kamenica</div><div class="uiMenuItem" data-action="menu-item" data-value="44" data-text="Sremska Mitrovica" data-index="150">Sremska Mitrovica</div><div class="uiMenuItem" data-action="menu-item" data-value="82" data-text="Sremski Karlovci" data-index="151">Sremski Karlovci</div></div><div class="uiMenuGroup" id="menuGroup4"><div class="uiMenuItem" data-action="menu-item" data-value="79" data-text="Stara Pazova" data-index="152">Stara Pazova</div><div class="uiMenuItem" data-action="menu-item" data-value="188" data-text="Starcevo" data-index="153">Starcevo</div><div class="uiMenuItem" data-action="menu-item" data-value="195" data-text="Stari Banovci" data-index="154">Stari Banovci</div><div class="uiMenuItem" data-action="menu-item" data-value="7" data-text="Subotica" data-index="155">Subotica</div><div class="uiMenuItem" data-action="menu-item" data-value="133" data-text="Surdulica" data-index="156">Surdulica</div><div class="uiMenuItem" data-action="menu-item" data-value="71" data-text="Svilajnac" data-index="157">Svilajnac</div><div class="uiMenuItem" data-action="menu-item" data-value="118" data-text="Svrljig" data-index="158">Svrljig</div><div class="uiMenuItem" data-action="menu-item" data-value="19" data-text="Šabac" data-index="159">Šabac</div><div class="uiMenuItem" data-action="menu-item" data-value="62" data-text="Šid" data-index="160">Šid</div><div class="uiMenuItem" data-action="menu-item" data-value="194" data-text="Štrpce" data-index="161">Štrpce</div><div class="uiMenuItem" data-action="menu-item" data-value="54" data-text="Temerin" data-index="162">Temerin</div><div class="uiMenuItem" data-action="menu-item" data-value="122" data-text="Titel" data-index="163">Titel</div><div class="uiMenuItem" data-action="menu-item" data-value="102" data-text="Topola" data-index="164">Topola</div><div class="uiMenuItem" data-action="menu-item" data-value="57" data-text="Trstenik" data-index="165">Trstenik</div><div class="uiMenuItem" data-action="menu-item" data-value="97" data-text="Tutin" data-index="166">Tutin</div><div class="uiMenuItem" data-action="menu-item" data-value="72" data-text="Ub" data-index="167">Ub</div><div class="uiMenuItem" data-action="menu-item" data-value="22" data-text="Užice" data-index="168">Užice</div><div class="uiMenuItem" data-action="menu-item" data-value="21" data-text="Valjevo" data-index="169">Valjevo</div><div class="uiMenuItem" data-action="menu-item" data-value="128" data-text="Varvarin" data-index="170">Varvarin</div><div class="uiMenuItem" data-action="menu-item" data-value="56" data-text="Velika Plana" data-index="171">Velika Plana</div><div class="uiMenuItem" data-action="menu-item" data-value="64" data-text="Veliko Gradište" data-index="172">Veliko Gradište</div><div class="uiMenuItem" data-action="menu-item" data-value="165" data-text="Veternik" data-index="173">Veternik</div><div class="uiMenuItem" data-action="menu-item" data-value="146" data-text="Vinca" data-index="174">Vinca</div><div class="uiMenuItem" data-action="menu-item" data-value="124" data-text="Vladicin Han" data-index="175">Vladicin Han</div><div class="uiMenuItem" data-action="menu-item" data-value="184" data-text="Vladimirci" data-index="176">Vladimirci</div><div class="uiMenuItem" data-action="menu-item" data-value="96" data-text="Vlasotince" data-index="177">Vlasotince</div><div class="uiMenuItem" data-action="menu-item" data-value="13" data-text="Vranje" data-index="178">Vranje</div><div class="uiMenuItem" data-action="menu-item" data-value="51" data-text="Vrbas" data-index="179">Vrbas</div><div class="uiMenuItem" data-action="menu-item" data-value="59" data-text="Vrnjacka Banja" data-index="180">Vrnjacka Banja</div><div class="uiMenuItem" data-action="menu-item" data-value="45" data-text="Vršac" data-index="181">Vršac</div><div class="uiMenuItem" data-action="menu-item" data-value="25" data-text="Zajecar" data-index="182">Zajecar</div><div class="uiMenuItem" data-action="menu-item" data-value="58" data-text="Zlatibor" data-index="183">Zlatibor</div><div class="uiMenuItem" data-action="menu-item" data-value="40" data-text="Zrenjanin" data-index="184">Zrenjanin</div><div class="uiMenuItem" data-action="menu-item" data-value="191" data-text="Zubin Potok" data-index="185">Zubin Potok</div><div class="uiMenuItem" data-action="menu-item" data-value="190" data-text="Zvecan" data-index="186">Zvecan</div><div class="uiMenuItem" data-action="menu-item" data-value="132" data-text="Žabalj" data-index="187">Žabalj</div><div class="uiMenuItem" data-action="menu-item" data-value="185" data-text="Žagubica" data-index="188">Žagubica</div><div class="uiMenuItem" data-action="menu-item" data-value="186" data-text="Žitorada" data-index="189">Žitorada</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="locationRadiusSecondInsertSpot"></span><div class="choice snake notEmpty joinPrev" id="locationRadiusSecondSelection" style="display: none">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Okolina</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			<div class="choiceOption" action-name="choice" parent-id="locationRadiusSecondSelection" action-value="0" title="0km">
+					<span class="optionText" action-name="choice-option-value">0km</span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div></div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="0" data-text="0km" data-index="0">0km</div><div class="uiMenuItem" data-action="menu-item" data-value="10" data-text="do 10km" data-index="1">do 10km</div><div class="uiMenuItem" data-action="menu-item" data-value="25" data-text="do 25km" data-index="2">do 25km</div><div class="uiMenuItem" data-action="menu-item" data-value="50" data-text="do 50km" data-index="3">do 50km</div><div class="uiMenuItem" data-action="menu-item" data-value="75" data-text="do 75km" data-index="4">do 75km</div><div class="uiMenuItem" data-action="menu-item" data-value="100" data-text="do 100km" data-index="5">do 100km</div><div class="uiMenuItem" data-action="menu-item" data-value="150" data-text="do 150km" data-index="6">do 150km</div><div class="uiMenuItem" data-action="menu-item" data-value="200" data-text="do 200km" data-index="7">do 200km</div><div class="uiMenuItem" data-action="menu-item" data-value="250" data-text="do 250km" data-index="8">do 250km</div><div class="uiMenuItem" data-action="menu-item" data-value="300" data-text="do 300km" data-index="9">do 300km</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="adTypeSecondInsertSpot"></span><div class="choice snake" id="adTypeSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Nudi se/Traži se</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="all" data-text="Nudi se/Traži se" data-index="0">Nudi se/Traži se</div><div class="uiMenuItem" data-action="menu-item" data-value="sell" data-text="Nudi se" data-index="1">Nudi se</div><div class="uiMenuItem" data-action="menu-item" data-value="buy" data-text="Traži se" data-index="2">Traži se</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="adKindSecondInsertSpot"></span>
+								<!--<span id="categorySecondInsertSpot"></span>-->
+								<span class="ad-class-element-inline-car">
+									<span id="vehiclePowerSecondInsertSpot"></span><div class="choice snake" id="vehiclePowerSecondMinSelection" style="display: none">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">KS od</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="25" data-text="25KS (18kW)" data-index="0">25KS (18kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="50" data-text="50KS (37kW)" data-index="1">50KS (37kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="75" data-text="75KS (59kW)" data-index="2">75KS (59kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="100" data-text="100KS (74kW)" data-index="3">100KS (74kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="125" data-text="125KS (93kW)" data-index="4">125KS (93kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="150" data-text="150KS (112kW)" data-index="5">150KS (112kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="200" data-text="200KS (149kW)" data-index="6">200KS (149kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="250" data-text="250KS (186kW)" data-index="7">250KS (186kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="300" data-text="300KS (223kW)" data-index="8">300KS (223kW)</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div><div class="choice snake" id="vehiclePowerSecondMaxSelection" style="display: none" skip-odd-even-count="yes">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">KS do</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="25" data-text="25KS (18kW)" data-index="0">25KS (18kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="50" data-text="50KS (37kW)" data-index="1">50KS (37kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="75" data-text="75KS (59kW)" data-index="2">75KS (59kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="100" data-text="100KS (74kW)" data-index="3">100KS (74kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="125" data-text="125KS (93kW)" data-index="4">125KS (93kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="150" data-text="150KS (112kW)" data-index="5">150KS (112kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="200" data-text="200KS (149kW)" data-index="6">200KS (149kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="250" data-text="250KS (186kW)" data-index="7">250KS (186kW)</div><div class="uiMenuItem" data-action="menu-item" data-value="300" data-text="300KS (223kW)" data-index="8">300KS (223kW)</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="vehicleCCSecondInsertSpot"></span><div class="choice snake" id="vehicleCCSecondMinSelection" style="display: none">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">cm3 od</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="500" data-text="500 cm3" data-index="0">500 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1150" data-text="1150 cm3" data-index="1">1150 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1300" data-text="1300 cm3" data-index="2">1300 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1600" data-text="1600 cm3" data-index="3">1600 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1800" data-text="1800 cm3" data-index="4">1800 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="2000" data-text="2000 cm3" data-index="5">2000 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="2500" data-text="2500 cm3" data-index="6">2500 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="3000" data-text="3000 cm3" data-index="7">3000 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="3500" data-text="3500 cm3" data-index="8">3500 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="4500" data-text="4500 cm3" data-index="9">4500 cm3</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div><div class="choice snake" id="vehicleCCSecondMaxSelection" style="display: none" skip-odd-even-count="yes">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">cm3 do</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="500" data-text="500 cm3" data-index="0">500 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1150" data-text="1150 cm3" data-index="1">1150 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1300" data-text="1300 cm3" data-index="2">1300 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1600" data-text="1600 cm3" data-index="3">1600 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="1800" data-text="1800 cm3" data-index="4">1800 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="2000" data-text="2000 cm3" data-index="5">2000 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="2500" data-text="2500 cm3" data-index="6">2500 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="3000" data-text="3000 cm3" data-index="7">3000 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="3500" data-text="3500 cm3" data-index="8">3500 cm3</div><div class="uiMenuItem" data-action="menu-item" data-value="4500" data-text="4500 cm3" data-index="9">4500 cm3</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="vehicleKMSecondInsertSpot"></span><div class="choice snake" id="vehicleKMSecondMinSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">km od</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="25000" data-text="25.000 km" data-index="0">25.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="50000" data-text="50.000 km" data-index="1">50.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="75000" data-text="75.000 km" data-index="2">75.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="100000" data-text="100.000 km" data-index="3">100.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="125000" data-text="125.000 km" data-index="4">125.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="150000" data-text="150.000 km" data-index="5">150.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="175000" data-text="175.000 km" data-index="6">175.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="200000" data-text="200.000 km" data-index="7">200.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="250000" data-text="250.000 km" data-index="8">250.000 km</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div><div class="choice snake" id="vehicleKMSecondMaxSelection" style="display: none;" skip-odd-even-count="yes">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">km do</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="25000" data-text="25.000 km" data-index="0">25.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="50000" data-text="50.000 km" data-index="1">50.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="75000" data-text="75.000 km" data-index="2">75.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="100000" data-text="100.000 km" data-index="3">100.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="125000" data-text="125.000 km" data-index="4">125.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="150000" data-text="150.000 km" data-index="5">150.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="175000" data-text="175.000 km" data-index="6">175.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="200000" data-text="200.000 km" data-index="7">200.000 km</div><div class="uiMenuItem" data-action="menu-item" data-value="250000" data-text="250.000 km" data-index="8">250.000 km</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="carFuelTypeSecondInsertSpot"></span><div class="choice snake multiselect" id="carFuelTypeSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText"></span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="carBodyTypeSecondInsertSpot"></span><div class="choice snake multiselect" id="carBodyTypeSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText"></span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="carFuelTypeSecondInsertSpot"></span>
+									<span id="vehicleMakeYearSecondInsertSpot"></span><div class="choice snake joinNext" id="vehicleMakeYearSecondMinSelection" style="">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">God. od</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><div><input type="text"></div><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="2016." data-text="2016." data-index="0">2016.</div><div class="uiMenuItem" data-action="menu-item" data-value="2015." data-text="2015." data-index="1">2015.</div><div class="uiMenuItem" data-action="menu-item" data-value="2014." data-text="2014." data-index="2">2014.</div><div class="uiMenuItem" data-action="menu-item" data-value="2013." data-text="2013." data-index="3">2013.</div><div class="uiMenuItem" data-action="menu-item" data-value="2012." data-text="2012." data-index="4">2012.</div><div class="uiMenuItem" data-action="menu-item" data-value="2011." data-text="2011." data-index="5">2011.</div><div class="uiMenuItem" data-action="menu-item" data-value="2010." data-text="2010." data-index="6">2010.</div><div class="uiMenuItem" data-action="menu-item" data-value="2009." data-text="2009." data-index="7">2009.</div></div><div class="uiMenuGroup" id="menuGroup1"><div class="uiMenuItem" data-action="menu-item" data-value="2008." data-text="2008." data-index="8">2008.</div><div class="uiMenuItem" data-action="menu-item" data-value="2007." data-text="2007." data-index="9">2007.</div><div class="uiMenuItem" data-action="menu-item" data-value="2006." data-text="2006." data-index="10">2006.</div><div class="uiMenuItem" data-action="menu-item" data-value="2005." data-text="2005." data-index="11">2005.</div><div class="uiMenuItem" data-action="menu-item" data-value="2004." data-text="2004." data-index="12">2004.</div><div class="uiMenuItem" data-action="menu-item" data-value="2003." data-text="2003." data-index="13">2003.</div><div class="uiMenuItem" data-action="menu-item" data-value="2002." data-text="2002." data-index="14">2002.</div><div class="uiMenuItem" data-action="menu-item" data-value="2001." data-text="2001." data-index="15">2001.</div></div><div class="uiMenuGroup" id="menuGroup2"><div class="uiMenuItem" data-action="menu-item" data-value="2000." data-text="2000." data-index="16">2000.</div><div class="uiMenuItem" data-action="menu-item" data-value="1999." data-text="1999." data-index="17">1999.</div><div class="uiMenuItem" data-action="menu-item" data-value="1998." data-text="1998." data-index="18">1998.</div><div class="uiMenuItem" data-action="menu-item" data-value="1997." data-text="1997." data-index="19">1997.</div><div class="uiMenuItem" data-action="menu-item" data-value="1996." data-text="1996." data-index="20">1996.</div><div class="uiMenuItem" data-action="menu-item" data-value="1995." data-text="1995." data-index="21">1995.</div><div class="uiMenuItem" data-action="menu-item" data-value="1994." data-text="1994." data-index="22">1994.</div><div class="uiMenuItem" data-action="menu-item" data-value="1993." data-text="1993." data-index="23">1993.</div></div><div class="uiMenuGroup" id="menuGroup3"><div class="uiMenuItem" data-action="menu-item" data-value="1992." data-text="1992." data-index="24">1992.</div><div class="uiMenuItem" data-action="menu-item" data-value="1991." data-text="1991." data-index="25">1991.</div><div class="uiMenuItem" data-action="menu-item" data-value="1990." data-text="1990." data-index="26">1990.</div><div class="uiMenuItem" data-action="menu-item" data-value="1985." data-text="1985." data-index="27">1985.</div><div class="uiMenuItem" data-action="menu-item" data-value="1980." data-text="1980." data-index="28">1980.</div><div class="uiMenuItem" data-action="menu-item" data-value="1975." data-text="1975." data-index="29">1975.</div><div class="uiMenuItem" data-action="menu-item" data-value="1970." data-text="1970." data-index="30">1970.</div><div class="uiMenuItem" data-action="menu-item" data-value="1965." data-text="1965." data-index="31">1965.</div></div><div class="uiMenuGroup" id="menuGroup4"><div class="uiMenuItem" data-action="menu-item" data-value="1960." data-text="1960." data-index="32">1960.</div><div class="uiMenuItem" data-action="menu-item" data-value="1955." data-text="1955." data-index="33">1955.</div><div class="uiMenuItem" data-action="menu-item" data-value="1950." data-text="1950." data-index="34">1950.</div><div class="uiMenuItem" data-action="menu-item" data-value="1945." data-text="1945." data-index="35">1945.</div><div class="uiMenuItem" data-action="menu-item" data-value="1940." data-text="1940." data-index="36">1940.</div><div class="uiMenuItem" data-action="menu-item" data-value="1935." data-text="1935." data-index="37">1935.</div><div class="uiMenuItem" data-action="menu-item" data-value="1930." data-text="1930." data-index="38">1930.</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div><div class="choice snake joinPrev" id="vehicleMakeYearSecondMaxSelection" style="" skip-odd-even-count="yes">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">God. do</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><div><input type="text"></div><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="2016." data-text="2016." data-index="0">2016.</div><div class="uiMenuItem" data-action="menu-item" data-value="2015." data-text="2015." data-index="1">2015.</div><div class="uiMenuItem" data-action="menu-item" data-value="2014." data-text="2014." data-index="2">2014.</div><div class="uiMenuItem" data-action="menu-item" data-value="2013." data-text="2013." data-index="3">2013.</div><div class="uiMenuItem" data-action="menu-item" data-value="2012." data-text="2012." data-index="4">2012.</div><div class="uiMenuItem" data-action="menu-item" data-value="2011." data-text="2011." data-index="5">2011.</div><div class="uiMenuItem" data-action="menu-item" data-value="2010." data-text="2010." data-index="6">2010.</div><div class="uiMenuItem" data-action="menu-item" data-value="2009." data-text="2009." data-index="7">2009.</div></div><div class="uiMenuGroup" id="menuGroup1"><div class="uiMenuItem" data-action="menu-item" data-value="2008." data-text="2008." data-index="8">2008.</div><div class="uiMenuItem" data-action="menu-item" data-value="2007." data-text="2007." data-index="9">2007.</div><div class="uiMenuItem" data-action="menu-item" data-value="2006." data-text="2006." data-index="10">2006.</div><div class="uiMenuItem" data-action="menu-item" data-value="2005." data-text="2005." data-index="11">2005.</div><div class="uiMenuItem" data-action="menu-item" data-value="2004." data-text="2004." data-index="12">2004.</div><div class="uiMenuItem" data-action="menu-item" data-value="2003." data-text="2003." data-index="13">2003.</div><div class="uiMenuItem" data-action="menu-item" data-value="2002." data-text="2002." data-index="14">2002.</div><div class="uiMenuItem" data-action="menu-item" data-value="2001." data-text="2001." data-index="15">2001.</div></div><div class="uiMenuGroup" id="menuGroup2"><div class="uiMenuItem" data-action="menu-item" data-value="2000." data-text="2000." data-index="16">2000.</div><div class="uiMenuItem" data-action="menu-item" data-value="1999." data-text="1999." data-index="17">1999.</div><div class="uiMenuItem" data-action="menu-item" data-value="1998." data-text="1998." data-index="18">1998.</div><div class="uiMenuItem" data-action="menu-item" data-value="1997." data-text="1997." data-index="19">1997.</div><div class="uiMenuItem" data-action="menu-item" data-value="1996." data-text="1996." data-index="20">1996.</div><div class="uiMenuItem" data-action="menu-item" data-value="1995." data-text="1995." data-index="21">1995.</div><div class="uiMenuItem" data-action="menu-item" data-value="1994." data-text="1994." data-index="22">1994.</div><div class="uiMenuItem" data-action="menu-item" data-value="1993." data-text="1993." data-index="23">1993.</div></div><div class="uiMenuGroup" id="menuGroup3"><div class="uiMenuItem" data-action="menu-item" data-value="1992." data-text="1992." data-index="24">1992.</div><div class="uiMenuItem" data-action="menu-item" data-value="1991." data-text="1991." data-index="25">1991.</div><div class="uiMenuItem" data-action="menu-item" data-value="1990." data-text="1990." data-index="26">1990.</div><div class="uiMenuItem" data-action="menu-item" data-value="1985." data-text="1985." data-index="27">1985.</div><div class="uiMenuItem" data-action="menu-item" data-value="1980." data-text="1980." data-index="28">1980.</div><div class="uiMenuItem" data-action="menu-item" data-value="1975." data-text="1975." data-index="29">1975.</div><div class="uiMenuItem" data-action="menu-item" data-value="1970." data-text="1970." data-index="30">1970.</div><div class="uiMenuItem" data-action="menu-item" data-value="1965." data-text="1965." data-index="31">1965.</div></div><div class="uiMenuGroup" id="menuGroup4"><div class="uiMenuItem" data-action="menu-item" data-value="1960." data-text="1960." data-index="32">1960.</div><div class="uiMenuItem" data-action="menu-item" data-value="1955." data-text="1955." data-index="33">1955.</div><div class="uiMenuItem" data-action="menu-item" data-value="1950." data-text="1950." data-index="34">1950.</div><div class="uiMenuItem" data-action="menu-item" data-value="1945." data-text="1945." data-index="35">1945.</div><div class="uiMenuItem" data-action="menu-item" data-value="1940." data-text="1940." data-index="36">1940.</div><div class="uiMenuItem" data-action="menu-item" data-value="1935." data-text="1935." data-index="37">1935.</div><div class="uiMenuItem" data-action="menu-item" data-value="1930." data-text="1930." data-index="38">1930.</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="carDoorsSecondInsertSpot"></span><div class="choice snake" id="carDoorsSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText"></span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="3" data-text="2/3 vrata" data-index="0">2/3 vrata</div><div class="uiMenuItem" data-action="menu-item" data-value="5" data-text="4/5 vrata" data-index="1">4/5 vrata</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="carGearboxSecondInsertSpot"></span><div class="choice snake multiselect" id="carGearboxSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Menjac</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="manual:4" data-text="4 brzine" data-index="0">4 brzine</div><div class="uiMenuItem" data-action="menu-item" data-value="manual:5" data-text="5 brzina" data-index="1">5 brzina</div><div class="uiMenuItem" data-action="menu-item" data-value="manual:6" data-text="6 brzina" data-index="2">6 brzina</div><div class="uiMenuItem" data-action="menu-item" data-value="manual:7" data-text="Više brzina" data-index="3">Više brzina</div><div class="uiMenuItem" data-action="menu-item" data-value="semiautomatic" data-text="Poluautomatski" data-index="4">Poluautomatski</div><div class="uiMenuItem" data-action="menu-item" data-value="automatic" data-text="Automatski" data-index="5">Automatski</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+									<span id="carAirconditionSecondInsertSpot"></span><div class="choice snake" id="carAirconditionSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText"></span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="no" data-text="Nema klimu" data-index="0">Nema klimu</div><div class="uiMenuItem" data-action="menu-item" data-value="yes" data-text="Ima klimu" data-index="1">Ima klimu</div><div class="uiMenuItem" data-action="menu-item" data-value="manual" data-text="Manuelna klima" data-index="2">Manuelna klima</div><div class="uiMenuItem" data-action="menu-item" data-value="automatic" data-text="Automatska klima" data-index="3">Automatska klima</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								</span>
+								<span id="priceSecondInsertSpot"></span><div class="choice snake multiselect" id="priceSecondSelection" style="">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Cena/Zamena</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div id="priceSelection" style="white-space: nowrap; padding: 8px 20px 5px 5px;">
+												<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+												Min: <input type="input" size="9" name="data[price_from]" value="" action-name="price-min">
+												Max: <input type="input" size="9" name="data[price_to]" value="" action-name="price-max">
+												<input type="radio" name="data[currency]" value="rsd" action-name="currency-rsd">
+												<label for="currency_rsd">din</label>
+												<input type="radio" name="data[currency]" value="eur" action-name="currency-eur">
+												<label for="currency_eur">€</label>
+												<br>
+												<label for="has_price_yes">
+													<input type="checkbox" name="data[has_price]" value="yes" action-name="with-price-only" id="has_price_yes">
+													Samo&nbsp;sa&nbsp;cenom
+												</label>
+												<label for="price_text_besplatno">
+													<input type="checkbox" name="data[price_text][]" value="Besplatno" action-name="price-text-besplatno" id="price_text_besplatno">
+													Besplatno
+												</label>
+												<label for="price_text_dogovor">
+													<input type="checkbox" name="data[price_text][]" value="Dogovor" action-name="price-text-dogovor" id="price_text_dogovor">
+													Dogovor
+												</label>
+												<br>
+												<label for="auction_yes">
+													<input type="checkbox" name="data[auction]" value="yes" action-name="auction-yes" id="auction_yes">
+													Dozvoljeno davanje ponuda
+												</label><br>
+												<label for="exchange_yes">
+													<input type="checkbox" name="data[exchange]" value="yes" action-name="exchange-yes" id="exchange_yes">
+													Moguca zamena
+												</label><br>
+												<input type="button" action-name="confirm" value="Postavi">
+												<input type="button" action-name="reset" value="Poništi">
+											</div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="conditionSecondInsertSpot"></span><div class="choice snake multiselect" id="conditionSecondSelection" style="display: none;" skip-odd-even-count="yes">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Bilo koje stanje</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="new" data-text="Novo" data-index="0">Novo</div><div class="uiMenuItem" data-action="menu-item" data-value="as-new" data-text="Kao novo (nekorišceno)" data-index="1">Kao novo (nekorišceno)</div><div class="uiMenuItem" data-action="menu-item" data-value="used" data-text="Polovno" data-index="2">Polovno</div><div class="uiMenuItem" data-action="menu-item" data-value="damaged" data-text="Ošteceno ili neispravno" data-index="3">Ošteceno ili neispravno</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="photoSecondInsertSpot"></span><div class="choice snake" id="photoSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Sa i bez slika</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="yes" data-text="Ima slike" data-index="0">Ima slike</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="periodSecondInsertSpot"></span><div class="choice snake" id="periodSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Period</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="today" data-text="Današnji oglasi" data-index="0">Današnji oglasi</div><div class="uiMenuItem" data-action="menu-item" data-value="3day" data-text="Poslednja 3 dana" data-index="1">Poslednja 3 dana</div><div class="uiMenuItem" data-action="menu-item" data-value="7day" data-text="Poslednjih 7 dana" data-index="2">Poslednjih 7 dana</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<span id="orderSecondInsertSpot"></span><div class="choice snake" id="orderSecondSelection" style="display: none;">
+		<div action-name="content" class="choiceContentHolder clickable">
+			<div class="choiceLabelHolder" action-name="choice-first-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceLabel">
+					<span action-name="label" class="choiceLabelText">Prikaži prvo</span> <span class="light-blue-text labelArrow">?</span><div class="loaderHolder"><img src="/images/loading-14.gif"></div>
+				</div>
+				<div class="choiceOption" action-name="choice-first-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div action-name="menu-holder" class="choiceMenu" style="">
+				<a href="javascript:;" class="choiceMenuClose" action-name="choice-menu-close"></a>
+			<div class="uiInlineBlock uiMenuHolder" style="top: 0px; left: 0px;"><iframe frameborder="0" src="about:blank" style="position: absolute; margin: 0px; padding: 0px; border: 0px; top: 0px; left: 0px; width: 1000px; height: 1000px; z-index: -1; background-color: rgb(255, 255, 255);"></iframe><div class="uiInlineBlock uiMenuGroupsHolder"><div class="uiMenuGroup" id="menuGroup0"><div class="uiMenuItem" data-action="menu-item" data-value="price" data-text="Jeftinije" data-index="0">Jeftinije</div><div class="uiMenuItem" data-action="menu-item" data-value="price desc" data-text="Skuplje" data-index="1">Skuplje</div><div class="uiMenuItem" data-action="menu-item" data-value="posted desc" data-text="Novije oglase" data-index="2">Novije oglase</div><div class="uiMenuItem" data-action="menu-item" data-value="view_count desc" data-text="Popularnije" data-index="3">Popularnije</div></div></div></div></div>
+			<div class="choicesHolder" action-name="choice-options-insert" choice-option-insert-position="bottom">
+				<div class="choiceOption" action-name="choice-option-template" parent-id="" style="display: none">
+					<span class="optionText" action-name="choice-option-value"></span><a class="choiceOptionClose" action-name="close" href="javascript:;">?</a>
+				</div>
+			</div>
+			<div class="add-more-icon">+</div>
+		</div>
+	</div>
+								<input type="submit" name="submit[search]" value="Traži" class="searchButton secondarySearchButton">
+							</div>
+                            </body>
+                            </html>

@@ -1,0 +1,1137 @@
+
+
+/* Choices list */
+div.searchFormChoicesHolder {
+	position: relative;
+}
+
+.searchFormChoicesList {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	height: auto !important;
+	height: 1%;
+	width: 100%;
+	-moz-box-sizing: 	border-box;
+	-ms-box-sizing: 	border-box;
+	-webkit-box-sizing: border-box;
+	-khtml-box-sizing:	border-box;
+	box-sizing: 		border-box;
+	/*background-color: #fff;*/
+}
+
+.searchFormChoicesList .choice {
+	position: 			relative;
+	float: 				left;
+	margin: 			4px 0;
+	padding: 			0;
+	-moz-box-sizing: 	border-box;
+	-ms-box-sizing:		border-box;
+	-webkit-box-sizing: border-box;
+	-khtml-box-sizing:	border-box;
+	box-sizing: 		border-box;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+ /*IE10+ CSS styles go here*/
+	.searchFormChoicesList .choice.snake {
+		float: none !important;
+	}
+	.searchFormChoicesList .choice .choiceContent {
+		border-color: #fff !important;
+	}
+	.searchFormChoicesList .choice .choiceContent .choiceLabel {
+		border: 1px solid #007ec3;
+		border-right: 0;
+		padding: 2px 6px 2px 3px !important;
+	}
+	.searchFormChoicesList .choice .choiceContent .optionsWrapper {
+		flex: none !important;
+	}
+}
+
+.searchFormChoicesList .choice.break {
+	clear: left;
+}
+
+.searchFormChoicesList .choice .choiceContent {
+	position: 		relative;
+	display: 		flex;
+	display: 		-webkit-box;
+	display: 		-ms-flexbox;
+	flex-wrap: 		wrap;
+	overflow: 		hidden;
+	padding: 		0px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: 	border-box;
+	box-sizing: 		border-box;
+
+	/*border: 		1px solid #007ec3;*/
+	/*color: 			#000;*/
+	/*line-height:17px;*/
+}
+
+.searchFormChoicesList .choice.snake .choiceContent {
+	display: 			block;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption {
+	position: 			relative;
+	/*display: 			block;*/
+	float: 				left;
+	padding-right: 		5px;
+	/*background:				#fff;*/
+	/*border-bottom: 		1px solid #bfe0f1;*/
+	/*border-top: 			1px solid #bfe0f1;*/
+	/*border-right: 		1px solid #bfe0f1;*/
+	margin-right: 		-1px;
+	margin-top: 		-1px;
+	margin-bottom: 		0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: 	border-box;
+	box-sizing: 		border-box;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption:hover {
+	cursor: pointer;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption:hover .choiceOptionClose {
+	/*color: #ff1000;*/
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .optionText {
+	display: 				inline-block;
+	/*border-left: 			1px solid #bfe0f1;*/
+	font-weight: bold;
+	line-height: 				18px;
+	padding-left: 			5px;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption label {
+	/*line-height: 			21px;*/
+}
+
+.searchFormChoicesList .choice .choiceContent .optionsWrapper {
+	flex:					1 1 1px;
+	-webkit-box-flex:		1;
+	padding-top:			1px;
+	/*min-width: 1px;*/
+}
+
+.searchFormChoicesList .choice.snake .choiceContent .optionsWrapper {
+	float:					left;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceLabel {
+	flex:					0 1 auto;
+	-webkit-box-flex:		0;
+	z-index:				0;
+	min-width:				1px;
+	/*font-weight: normal;*/
+	/*background: #e8f3f9;*/
+/*	padding: 2px 6px 2px 3px;*/
+	-webkit-box-sizing:		border-box;
+	-moz-box-sizing:		border-box;
+	box-sizing:				border-box;
+}
+
+@media screen\0 {
+	/* IE 8	IE 9	IE 10 */
+	.searchFormChoicesList .choice .choiceContent .choiceLabel {
+		float: left;
+	}
+}
+
+.searchFormChoicesList .choice.snake .choiceContent .choiceLabel {
+	float:					left;
+}
+
+.searchFormChoicesList .choice.hideLabel .choiceContent .choiceLabel {
+	display: none;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceLabel .labelArrow {
+	margin-left: 3px;
+	position: relative;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .choiceOptionClose {
+	display: inline-block;
+	/*color: #007ec3;*/
+	/*font-weight: bold;*/
+	margin-left: 4px;
+	/*font-size: 12px;*/
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .choiceOptionClose:hover {
+	/*text-decoration: none;*/
+	/*color: #ff1000;*/
+}
+
+/******************************************************************/
+
+.searchFormChoicesList .choice .choiceMenu {
+	display: none;
+	position: absolute;
+	left: -1px;
+	top: 100%;
+	margin-top: -1px;
+}
+
+.searchFormChoicesList .choice.right .choiceMenu {
+	right: -1px;
+	left: auto;
+}
+
+.searchFormChoicesList .choice .choiceMenu .choiceMenuClose {
+	display: block;
+	position: absolute;
+	right: 3px;
+	top: 4px;
+	width: 12px;
+	height: 12px;
+	font-size: 1px;
+	background: url('../images/chosen-sprite.png') -42px 1px no-repeat;
+	z-index: 100;
+}
+
+.searchFormChoicesList .choice.opened .choiceMenu {
+	display: inline-block;
+	background: #ffffff;
+	border-width: 1px 1px 1px 1px;
+	border-color: #aaaaaa;
+	border-style: solid;
+	padding: 3px;
+	z-index: 5;
+}
+
+.searchFormChoicesList .choice .choiceContent input[type=checkbox] {
+	margin: 0px 0px 0 6px;
+	padding: 0;
+	vertical-align: text-bottom;
+}
+
+.searchFormChoicesList .choice .choiceMenu .uiMenuHolder {
+	position: relative;
+	border: 0px;
+	white-space: nowrap;
+	z-index: 99;
+}
+
+.searchFormChoicesList .choice .choiceMenu .uiMenuGroup {
+	display: inline-block;
+	clear: none;
+	vertical-align: top;
+	float: none;
+	margin-top: 5px;
+}
+
+
+div.searchFormHolder {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+div.searchFormOutter {
+}
+div.searchFormInner {
+}
+
+.expand-form {
+	text-align: center;
+	border-bottom: 0px solid #ccc;
+	position: absolute;
+	bottom: 1px;
+	width: 100%;
+}
+
+.expand-form .expand-form-button {
+	display: inline-block;
+	padding: 2px 2px;
+	margin-bottom: -1px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	color: #aaa;
+	background-color: #fff;
+}
+
+.expand-form .expand-form-button:hover {
+	color: #007ec3;
+}
+
+.expand-form .expand-form-button .left-expand-arrow,
+.expand-form .expand-form-button .right-expand-arrow {
+	display: inline-block;
+	width: 20px;
+	text-align: center;
+	text-indent: -9999px;
+	background: url('../images/icons/arrow-expand-5.png') center no-repeat;
+}
+
+.expand-form .expand-form-button:hover .left-expand-arrow,
+.expand-form .expand-form-button:hover .right-expand-arrow {
+	background-image: url('../images/icons/arrow-expand-5-hover.png');
+}
+
+.expand-form:hover,
+.contract-form:hover {
+	cursor: pointer;
+}
+
+.contract-form {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.contract-form .contract-form-button {
+	display: inline-block;
+	padding: 2px;
+	margin-bottom: -1px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	color: #007ec3;
+	background: #fff;
+}
+
+.contract-form .contract-form-button:hover {
+	color: #007ec3;
+}
+
+.contract-form .contract-form-button .left-contract-arrow,
+.contract-form .contract-form-button .right-contract-arrow {
+	display: inline-block;
+	width: 20px;
+	text-align: center;
+	text-indent: -9999px;
+	background: url('../images/icons/arrow-contract-5-hover.png') center no-repeat;
+}
+
+.contract-form .contract-form-button:hover .left-contract-arrow,
+.contract-form .contract-form-button:hover .right-contract-arrow {
+	background-image: url('../images/icons/arrow-contract-5-hover.png');
+}
+
+.filter-controls {
+	margin-bottom: 3px;
+	text-align: right;
+	height: 15px;
+	/*line-height: 15px;*/
+}
+
+.filter-controls a {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.filter-controls .open-filters,
+.filter-controls .close-filters {
+	width: 95px;
+}
+
+.form-opened .filter-controls .open-filters,
+.form-closed .filter-controls .close-filters {
+	display: none;
+}
+
+.form-closed .filter-controls .open-filters,
+.form-opened .filter-controls .close-filters {
+	display: inline-block;
+}
+
+div.searchFormKeywordsHolder {
+	position: relative;
+	z-index: 5;
+}
+
+input.searchKeywordsInput {
+	border: 1px solid #007ec3;
+	font-size: 12px;
+	padding: 3px 2px;
+	width: 535px;
+	height: 15px;
+	/*
+	z-index: 4;
+	position: relative;
+	*/
+}
+
+div.searchFormKeywordsHolder input[type="submit"] {
+	width: 70px;
+}
+
+div.searchFormUnderBubble {
+	position: absolute;
+	display: block;
+	left: -11px;
+	top: -11px;
+	padding: 55px 10px 10px 10px;
+	z-index: 4;
+	width: 640px;
+	background: #fafafa; /*rgba(240, 240, 240, 1);*/
+	border: 1px solid #ccc;
+	box-shadow: 0 0 0;
+}
+
+.form-opened div.searchFormUnderBubble {
+	display: block;
+	animation-name: opacity;
+	animation-duration: .5s;
+}
+
+.form-closed div.searchFormUnderBubble {
+	display: none;
+}
+
+div.searchFormUnderBubble .kpUnderBubbleClose {
+	z-index: 6;
+	top: 10px;
+	right: 10px;
+	background: #fff url('../images/close-icon.png') no-repeat scroll 0px 0px;
+	width: 15px;
+	height: 15px;
+	-moz-background-clip: border;
+	-moz-background-origin: padding;
+	-moz-background-inline-policy: continuous;
+	border: 1px solid #DDDDDD;
+	cursor: pointer;
+}
+
+.searchButton {
+	color:			#003368;
+	background: 	#e8f3f9 url('../images/searchButtonArrow.gif') no-repeat right;
+	border:			1px solid #007ec3;
+	font-weight: 	bold;
+	padding: 		0px 30px 0px 5px;
+	height: 		23px;
+	/*line-height:	20px;*/
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:	border-box;
+	-webkit-box-sizing:border-box;
+	-khtml-box-sizing: border-box;
+	box-sizing: 	   border-box;
+}
+
+.searchButton:hover {
+	cursor:		pointer;
+}
+
+.searchRecentButton {
+	float: left;
+	color: #003368;
+	background: #e8f3f9 url('../images/searchRecentArrow.gif') no-repeat right;
+	border:	1px solid #BFE0F1;
+	font-weight: bold;
+	padding: 0px 30px 0px 5px;
+	height: 23px;
+	outline: none;
+	font-weight: normal;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:	border-box;
+	-webkit-box-sizing: border-box;
+	-khtml-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.searchRecentButton:hover {
+	cursor:		pointer;
+}
+
+.searchButton.secondarySearchButton,
+.searchRecentHolder {
+	float: left;
+	display: inline;
+	margin: 1px 3px 2px 0px;
+}
+
+.searchRecentLink {
+	position: relative;
+	background: #fff;
+	border: 1px solid #fff;
+	border-bottom: 0;
+	padding: 5px;
+	padding-bottom: 3px;
+	margin-bottom: -3px;
+	margin-top: -6px;
+	z-index: 4;
+}
+
+.searchRecentLink:hover {
+	/*border: 1px solid #BFE0F1;
+	background-color: #e8f3f9;
+	padding-bottom: 5px;
+	margin-bottom: -6px;*/
+	text-decoration: none;
+}
+.searchRecentLink:hover .linkLabel {
+	text-decoration: underline;
+}
+
+.searchRecentOpen .searchRecentLink:hover {
+}
+
+.searchRecentOpen .searchRecentLink {
+	/*padding-bottom: 3px;
+	border-color: #BFE0F1;
+	border-bottom-color: #fff;
+	background: #fff;*/
+}
+
+.searchRecentLink:hover sup {
+	text-decoration: none;
+}
+
+.searchRecentList {
+	position: absolute;
+	background: #fff;
+	border: 1px solid #aaaaaa;
+	width: 100%;
+	left: 0px;
+	right: 0px;
+	top: 18px;
+	text-align: left;
+	list-style-type: none;
+	padding: 20px 0px 0px 0px;
+	margin: 0;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:	border-box;
+	-webkit-box-sizing:border-box;
+	-khtml-box-sizing: border-box;
+	box-sizing: border-box;
+	display: none;
+}
+
+.searchRecentOpen .searchRecentList {
+	display: block;
+}
+
+.searchRecentListClose {
+	display: block;
+	position: absolute;
+	z-index: 6;
+	top: 2px;
+	right: 2px;
+	background: #fff url('/images/close-icon.png') no-repeat scroll 0px 0px;
+	width: 15px;
+	height: 15px;
+	-moz-background-clip: border;
+	-moz-background-origin: padding;
+	-moz-background-inline-policy: continuous;
+	border: 1px solid #DDDDDD;
+	cursor: pointer;
+}
+
+.removeSuggestion {
+	display: none;
+	position: absolute;
+	right: 4px;
+	top: 5px;
+	background: transparent url('/images/close-icon.png') no-repeat scroll -55px -3px;
+	width: 9px;
+	height: 9px;
+}
+
+.removeSuggestion:hover {
+	background-position: -3px -3px;
+	cursor: pointer;
+}
+
+.searchSuggestion:hover .removeSuggestion {
+	display: block;
+}
+
+.suggestionsList {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #fff;
+	border: 1px solid #BFE0F1;
+	padding: 10px;
+	margin: -3px 0 0 0;
+	z-index: 3;
+	list-style-type: none;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:	border-box;
+	-webkit-box-sizing:border-box;
+	-khtml-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.dropDownButtonCover {
+	display: none;
+	position: relative;
+	float: left;
+	width: 23px;
+	height: 1px;
+	margin-top: 22px;
+	margin-left: -24px;
+	background-color: #fff;
+	z-index: 4;
+}
+
+.open .suggestionsList,
+.open .dropDownButtonCover {
+	display: block;
+}
+
+.searchSuggestion {
+	position: relative;
+	padding: 0px 5px;
+}
+
+.searchSuggestion .suggestionHolder {
+	position: relative;
+	display: block;
+	font-size: 11px;
+	padding: 3px 3px;
+	margin: 2px 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #181818;
+}
+
+.searchSuggestion:hover .suggestionHolder {
+	cursor: pointer;
+	background-color: #369;
+	text-overflow: initial;
+	color: #ffffff;
+	text-overflow: clip;
+	width: 580px;
+}
+
+/*.searchSuggestion:nth-child(odd) {
+	background: #EAEAEA;
+}*/
+
+.suggestionHolder > span > span {
+	padding: 0px 0px 0px 0px;
+}
+
+.suggestionHolder > span > span:nth-child(odd) {
+	color: #000;
+}
+
+.searchSuggestion:hover .suggestionHolder > span > span:nth-child(odd){
+	color: #fff;
+}
+
+.suggestionHolder > span > span:nth-child(even) {
+	color: #444;
+}
+
+.searchSuggestion:hover .suggestionHolder > span > span:nth-child(even) {
+	color: #ccc;
+}
+
+.searchSuggestion:hover .suggestionHolder > span > span:nth-child(even) {
+	color: #ccc;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+ /*IE10+ CSS styles go here*/
+	.searchButton.secondarySearchButton,
+	.searchRecentButton {
+		float: none;
+		display: inline;
+	}
+}
+/* Choices list theme*/
+
+.searchFormChoicesList {
+	background-color: transparent;
+}
+
+.searchFormChoicesList .choice:hover {
+	cursor: 		pointer;
+}
+
+.searchFormChoicesList .choice .add-more-icon {
+	display: none;
+}
+
+.searchFormChoicesList .choice.multiselect.notEmpty .add-more-icon {
+	display: inline-block;
+	line-height: 20px;
+	padding: 0 3px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #007ec3;
+	background: #e8f3f9;
+}
+
+.searchFormChoicesList .choice.multiselect.notEmpty .add-more-icon:hover {
+	background: #fff;
+}
+
+.searchFormChoicesList .choice .choiceLabel .loaderHolder {
+	display: none;
+}
+
+.searchFormChoicesList .choice.choiceLoading .choiceLabel {
+	position: relative;
+	/*min-width: 12px;*/
+}
+
+.searchFormChoicesList .choice.choiceLoading .choiceLabel .loaderHolder {
+	display: block;
+	position: absolute;
+	left: 1px;
+	top: 4px;
+}
+
+.searchFormChoicesList .choice.choiceLoading .choiceLabel {
+	/*padding-right: 8px;*/ /* da loader ne bi prelazio preko teksta u labeli */
+}
+
+.searchFormChoicesList .choice.choiceLoading .choiceLabel .labelArrow {
+	opacity: 0;
+}
+
+.searchFormChoicesList .choice .choiceContent {
+	border: 		0px solid #007ec3;
+	color: 			#000;
+}
+
+.searchFormChoicesList .choice.joinPrev .choiceContent {
+	border-left: 	0;
+}
+
+.searchFormChoicesList .choice.joinNext .choiceContent {
+	border-right: 	0;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption {
+	background:				#fff;
+	/*border-bottom: 		1px solid #bfe0f1;
+	border-top: 			1px solid #bfe0f1;
+	border-right: 		1px solid #bfe0f1;*/
+	border-bottom: 		1px solid #fff;
+	border-top: 			1px solid #fff;
+	border-right: 		1px solid #fff;
+
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .optionText {
+	border-left: 			1px solid #bfe0f1;
+	/*vertical-align: middle;*/
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .optionText .limitWidth,
+.searchFormChoicesList .choice .choiceContent .choiceOption.limitWidth .optionText  {
+	max-width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip ellipsis;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceLabel {
+	font-weight: normal;
+	background: #e8f3f9;
+	padding: 3px 6px 3px 3px;
+	line-height: 14px;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .choiceOptionClose {
+	color: #c3c3c3; /*#007ec3;*/
+	font-weight: bold;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+.searchFormChoicesList .choice .choiceContent .choiceOption .choiceOptionClose:hover {
+	text-decoration: none;
+	color: #ff1000;
+}
+/**********/
+
+/* Ad Class show/hide */
+
+.ad-class-element-car,
+.ad-class-element-inline-car,
+.ad-class-element-inline-block-car {
+	display: none;
+}
+.ad-class-car .ad-class-element-car {
+	display: block;
+}
+
+.ad-class-car .ad-class-element-car .choiceLabel {
+	animation-name: greenToBlueOpacity;
+	animation-duration: 1s;
+}
+
+.ad-class-car .row.ad-class-element-car {
+	display: table;
+}
+.ad-class-car .ad-class-element-inline-car {
+	display: inline;
+}
+.ad-class-car .ad-class-element-inline-block-car {
+	display: inline-block;
+}
+
+/* The animation code */
+@keyframes greenToBlueOpacity {
+    from {
+			opacity: 0.3;
+			background-color: #8CC63F;
+		}
+    to {
+			opacity: 1;
+			background-color: #e8f3f9;
+		}
+}
+
+@keyframes opacity {
+    from {
+			top: -25px;
+			opacity: 0.3;
+		}
+    to {
+			top: -11px;
+			opacity: 1;
+		}
+}
+
+/* GREEDY TABLE CELL */
+/* .table-cell-greedy takes up all the remaining space from .table-cells */
+.table-holder {
+	width: 615px;
+	display: table;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.table-holder .table-cell-greedy,
+.table-holder .table-cell{
+	display: table-cell;
+	padding: 0px;
+	margin: 0px;
+}
+.table-holder .table-cell-greedy {
+	width: 100%;
+}
+.table-holder .table-cell-greedy > * {
+	width: 100%;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.table-holder .table-cell {
+	width: 1px;
+	white-space: nowrap;
+}
+.table-holder .table-cell > * {
+	float: none;
+}
+
+.table-holder .table-cell .snake.choice,
+.table-holder .table-cell .snake.choice .choiceLabel,
+.table-holder .table-cell .snake.choice .choiceOption{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+
+/* end of GREEDY TABLE CELL */
+
+
+/* Autocomplete */
+
+div.kpAutocompleteHolder {
+	position: absolute;
+	padding: 0px;
+	z-index: 10;
+}
+
+div.kpAutocompleteOutter {
+	border: 1px solid #aaaaaa;
+	background-color: #ffffff;
+	padding: 10px;
+	margin: 0px;
+}
+
+div.kpAutocompleteInner {
+	padding: 0px;
+	margin: 0px;
+	min-height: 20px;
+	min-width: 200px;
+}
+
+.kpAutocmpleteList {
+	margin: 0;
+	padding: 0;
+}
+
+.kpAutocmpleteList li {
+	list-style: none;
+	display: block;
+	cursor: pointer;
+	line-height1: 14px;
+	font-size: 13px;
+	padding: 2px 1px;
+	margin: 1px 0px;
+}
+
+.kpAutocmpleteList li.selected {
+	background-color: #003366;
+	color: #ffffff;
+}
+
+
+/* Snake choice odd contrast */
+
+.snake.choice {
+	position: relative;
+	display: inline;
+	/*float: none;
+	line-height: 16px;*/
+	margin-right: 8px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+.snake.choice.multiselect.notEmpty {
+	margin-right: 4px;
+}
+/*
+.snake.choice.multiselect.notEmpty .add-more-icon {
+	border: 1px solid #bfe0f1;
+	border-left: 0;
+	transition: all 0.1s linear;
+}
+
+.snake.choice:hover.multiselect.notEmpty .add-more-icon {
+	border-color: #007ec3;
+}
+*/
+div.snake.choice.even .choiceContentHolder .choicesHolder > .choiceOption,
+div.snake.choice.even .choiceContentHolder .choiceLabelHolder > .choiceOption {
+	background: #fff;
+}
+div.snake.choice.odd .choiceContentHolder .choicesHolder > .choiceOption,
+div.snake.choice.odd .choiceContentHolder .choiceLabelHolder > .choiceOption,
+.snake.choice.odd .choiceContentHolder .choiceOption.last,
+.snake.choice.odd .choiceContentHolder .choicesHolder > .choiceOption:last-of-type {
+	/*border-right-color: #007ec3;*/
+	background: #e8f3f9;
+}
+
+.snake.choice.even .choiceContentHolder .choiceOption.last,
+.snake.choice.even .choiceContentHolder .choicesHolder > .choiceOption:last-of-type  {
+	background: #fff;
+}
+
+.snake.choice.odd .choiceLabelHolder .choiceLabel,
+.snake.choice.odd .choiceLabelHolder .choiceLabel .labelArrow {
+	background: #e8f3f9;
+	font-weight: bold;
+}
+
+.snake.choice.even .choiceLabelHolder .choiceLabel,
+.snake.choice.even .choiceLabelHolder .choiceLabel .labelArrow {
+	background: #fff;
+	font-weight: bold;
+}
+/*
+.snake.choice.odd .choiceContentHolder .choicesHolder > .choiceOption,
+.snake.choice.odd .choiceContentHolder .choiceLabelHolder > .choiceOption {
+	border-top-color: #E2E2E2;
+	border-bottom-color: #E2E2E2;
+}
+
+.snake.choice.odd .choiceContentHolder .choiceOption.last,
+.snake.choice.odd .choiceContentHolder .choicesHolder > .choiceOption:last-of-type,
+.snake.choice.joinPrev.odd .choiceContentHolder .choiceLabelHolder > .choiceOption:last-of-type,
+.snake.choice.joinPrev.odd .choiceContentHolder .choiceLabelHolder > .choiceOption.last {
+	border-color: #E2E2E2;
+}
+
+.snake.choice.odd  .choiceLabelHolder .choiceLabel {
+	border-color: #E2E2E2;
+}
+*/
+.snake.choice.even .choiceOption,
+.snake.choice.odd .choiceOption {
+	color: #007ec3;
+}
+
+
+.snake.choice .choiceLabelHolder {
+	display: inline-block;
+	margin-right: -4px;
+}
+
+.snake.choice .choiceLabel .loaderHolder {
+	display: none;
+}
+
+.snake.choice.choiceLoading .choiceLabel {
+	position: relative;
+	/*min-width: 12px;*/
+}
+
+.snake.choice.choiceLoading .choiceLabel .loaderHolder {
+	display: block;
+	position: absolute;
+	left: 1px;
+	top: 4px;
+}
+
+.snake.choice.choiceLoading .choiceLabel .labelArrow {
+	opacity: 0;
+}
+
+.snake.choice .choiceLabelHolder .choiceLabel {
+	display: inline-block;
+	border: 0px solid #bfe0f1;
+	background: #e8f3f9;
+	transition: all 0.1s linear;
+}
+
+.snake.choice:hover .choiceLabelHolder .choiceLabel {
+	border-color: #007ec3;
+}
+
+.snake.choice.joinPrev .choiceLabelHolder .choiceLabel {
+	border-left: 0;
+}
+
+.snake.choice.notEmpty .choiceLabelHolder .choiceLabel {
+	border-right: 1px solid #bfe0f1;
+}
+
+.snake.choice .choiceLabelHolder .choiceLabelText {
+	/*float: left;
+	height: 15px;
+	line-height: 15px;*/
+}
+
+.snake.choice .choiceOption {
+	transition: all 0.1s linear;
+}
+
+.snake.choice:hover .choiceOption {
+	color: #000;
+}
+
+.snake.choice:hover .choiceLabelText {
+	/*color: #000;*/
+}
+
+
+.snake.choice .choiceLabelHolder .choiceOption {
+	border-left: 1px solid #bfe0f1;
+}
+.snake.choice .choiceLabelHolder .choiceOption,
+.snake.choice .choiceOption {
+	/*float: left;*/
+	display: inline-block;
+	background: #fff;
+}
+
+.snake.choice .choiceContentHolder {
+	display: inline;
+}
+
+.snake.choice .choiceContentHolder .choicesHolder {
+	display: inline;
+}
+
+.snake.choice .choiceContentHolder .choicesHolder .choiceOption.last {
+	margin-right: -4px;
+}
+
+.snake.choice .choiceContentHolder .choicesHolder > .choiceOption,
+.snake.choice .choiceContentHolder .choiceLabelHolder > .choiceOption {
+	/*border-top: 1px solid #bfe0f1;
+	border-bottom: 1px solid #bfe0f1;
+	border-right: 1px solid #bfe0f1;
+	border-left: 0;*/
+	border: 0;
+	/*margin: 2px 0;*/
+}
+
+.snake.choice:hover .choiceContentHolder .choicesHolder > .choiceOption,
+.snake.choice:hover .choiceContentHolder .choiceLabelHolder > .choiceOption {
+	/*border-top-color: #007ec3;
+	border-bottom-color: #007ec3;*/
+}
+
+.snake.choice .choiceContentHolder .choiceOption.last,
+.snake.choice .choiceContentHolder .choicesHolder > .choiceOption:last-of-type,
+.snake.choice.joinPrev .choiceContentHolder .choiceLabelHolder > .choiceOption:last-of-type,
+.snake.choice.joinPrev .choiceContentHolder .choiceLabelHolder > .choiceOption.last {
+	/*border-right: 1px solid #bfe0f1;*/
+}
+
+.snake.choice:hover .choiceContentHolder .choiceOption.last,
+.snake.choice:hover .choiceContentHolder .choicesHolder > .choiceOption:last-of-type,
+.snake.choice.joinPrev:hover .choiceContentHolder .choiceLabelHolder > .choiceOption:last-of-type,
+.snake.choice.joinPrev:hover .choiceContentHolder .choiceLabelHolder > .choiceOption.last {
+	border-color: #007ec3;
+}
+
+.snake.choice.joinNext .choiceContentHolder .choiceLabelHolder > .choiceOption,
+.snake.choice.joinNext .choiceContentHolder .choicesHolder > .choiceOption:last-of-type,
+.snake.choice.joinNext .choiceContentHolder .choiceOption.last {
+	/*border-right: 1px solid #bfe0f1;*/
+}
+
+.snake.choice.joinNext {
+	margin-right: 0px;
+}
+
+.snake.choice.joinPrev.hideLabel {
+	margin-left: 4px;
+}
+
+.snake.choice.hideLabel .choiceContentHolder .choiceLabelHolder .choiceLabel {
+	display: none;
+}
+
+.snake.choice .choiceContentHolder .choiceLabelHolder > .choiceOption {
+	margin-left: -4px;
+}
+
+.snake.choice .choiceLabel {
+	/*padding: 3px 4px;*/
+	margin: 2px 0;
+	color: #007ec3;
+	line-height: 20px;
+	padding: 0 3px;
+}
+.snake.choice .choiceOption {
+	margin: 2px 0;
+	line-height: 20px;
+	padding: 0 3px;
+}
+
+.snake.choice .choiceOption .optionText {
+	font-weight: bold;
+}
+
+.snake.choice .choiceOptionClose {
+	padding: 3px 4px;
+	color: #c3c3c3; /*#007ec3;*/
+	font-size: 12px;
+	line-height: 11px;
+	font-weight: bold;
+}
+
+.snake.choice .choiceOptionClose:hover {
+	text-decoration: none;
+	color: #ff1000;
+}
+
+.joinPrev {
+	/*margin-left: 4px !important;*/
+}
