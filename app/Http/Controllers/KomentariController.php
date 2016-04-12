@@ -64,27 +64,16 @@ class KomentariController extends Controller
 
     public function joskomentara()
     {
+        $joskomentara = Komentari::whereslug(Input::get('slug'))->orderBy('id', 'DESC')
+            ->skip(Input::get('skip'))
+            ->take(12)
+            ->get();
+        
+        return \Response::json($joskomentara);
+    }
 
-                     
-
-         $joskomentara=    Komentari::whereslug(Input::get('slug'))->orderBy('id','DESC')->skip(Input::get('skip'))->take(12)->get();
-
-
-
-
-                       return   \Response::json($joskomentara);
- }
-
-
-  public function brisanjekomentara() {
-
-     Komentari::whereid(Input::get('id'))->delete();
-
- }
-
-
-
-
-
-
+    public function brisanjekomentara()
+    {
+        Komentari::whereid(Input::get('id'))->delete();
+    }
 }
