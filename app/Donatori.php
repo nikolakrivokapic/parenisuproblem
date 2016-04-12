@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 class Donatori extends Model
 {
     //
-
-protected $table = 'donatori';
+    protected $table = 'donatori';
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Events;
 
 use App\Poruke1;
@@ -16,7 +15,7 @@ class ItemCreated extends Event implements ShouldBroadcast
     /**
      * Create a new event instance.
      *
-     * @param Item $item
+     * @param Item $item            
      * @return void
      */
     public function __construct(Poruke1 $comment)

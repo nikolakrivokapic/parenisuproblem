@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,10 +13,10 @@ use App\Podrska;
 use App\Updates;
 use App\Komentari;
 use App\Komentariobjava;
-    use Illuminate\Support\Facades\Input;
-  use Illuminate\Support\Facades\Redirect;
-  use Illuminate\Support\Facades\URL;
-  Use Log;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
+Use Log;
 
 class PodrskaController extends Controller
 {

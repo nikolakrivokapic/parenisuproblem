@@ -1,18 +1,19 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Updates extends Model
 {
     //
+    protected $table = 'updates';
 
-protected $table = 'updates';
-public $timestamps = false;
- public function komentariobjava()
+    public $timestamps = false;
+
+    public function komentariobjava()
     {
-        return $this->hasMany('App\Komentariobjava','update_id')->orderBy('id','DESC')->take(12); 
+        return $this->hasMany('App\Komentariobjava', 'update_id')
+            ->orderBy('id', 'DESC')
+            ->take(12);
     }
 }

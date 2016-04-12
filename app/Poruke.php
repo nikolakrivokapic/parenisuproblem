@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,24 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 class Poruke extends Model
 {
     //
-public $timestamps = false;
-protected $table = 'poruke';
+    public $timestamps = false;
 
- public function poruke1()
+    protected $table = 'poruke';
+
+    public function poruke1()
     {
-        return $this->hasMany('App\Poruke1','poruka_id')->orderBy('id', 'DESC');
+        return $this->hasMany('App\Poruke1', 'poruka_id')->orderBy('id', 'DESC');
     }
 
- public function porukesve()
+    public function porukesve()
     {
-        return $this->hasMany('App\Poruke1','poruka_id')->orderBy('id', 'DESC');
+        return $this->hasMany('App\Poruke1', 'poruka_id')->orderBy('id', 'DESC');
     }
 
-public function getPoruke1PaginatedAttribute()
-{
-    return $this->poruke1()->orderBy('id', 'DESC')->paginate(5);
-}
-
-
-
+    public function getPoruke1PaginatedAttribute()
+    {
+        return $this->poruke1()
+            ->orderBy('id', 'DESC')
+            ->paginate(5);
+    }
 }

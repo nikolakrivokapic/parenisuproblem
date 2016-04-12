@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Podesavanja extends Model
 {
     //
+    protected $table = 'podesavanja';
 
-protected $table = 'podesavanja';
-public $timestamps = false;
+    public $timestamps = false;
 }
