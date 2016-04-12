@@ -63,24 +63,20 @@ class PorukeController extends Controller
             );
             Poruke1::insert($array);
         } else {
-
-                  $array = array(     'receiver' => $receiver , 'sender' => Input::get('sender'),  'text' => Input::get('text'),
-             'vreme' => $vreme, 'poruka_id' =>  $temp->id  );
-      $idi=  Poruke1::insertGetId( $array );
-
- $podcast = Poruke1::whereid($idi)->first();
- Event::fire(new ItemCreated($podcast));
-
-       }
-
-
-       return Redirect::to('/users/poruke/'.Auth::user()->id);
-
- }
-
-
-
-
-
-
+            
+            $array = array(
+                'receiver' => $receiver,
+                'sender' => Input::get('sender'),
+                'text' => Input::get('text'),
+                'vreme' => $vreme,
+                'poruka_id' => $temp->id
+            );
+            $idi = Poruke1::insertGetId($array);
+            
+            $podcast = Poruke1::whereid($idi)->first();
+            Event::fire(new ItemCreated($podcast));
+        }
+        
+        return Redirect::to('/users/poruke/' . Auth::user()->id);
+    }
 }
