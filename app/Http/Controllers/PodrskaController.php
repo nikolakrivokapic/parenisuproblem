@@ -21,26 +21,14 @@ Use Log;
 class PodrskaController extends Controller
 {
 
-
-
-
- public function jospodrzalih() {
-
-                     
-
-         $jospodrzalih=    Podrska::whereslug(Input::get('slug'))->orderBy('id','ASC')->skip(Input::get('skip'))->take(50)->get();
-
-
-
-
-                       return   \Response::json($jospodrzalih);
- }
-
-
-
-
-
-
-
+    public function jospodrzalih()
+    {
+        $jospodrzalih = Podrska::whereslug(Input::get('slug'))->orderBy('id', 'ASC')
+            ->skip(Input::get('skip'))
+            ->take(50)
+            ->get();
+        
+        return \Response::json($jospodrzalih);
+    }
 }
 
